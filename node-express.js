@@ -5,15 +5,43 @@ var host=config.host;
 var port=config.port;
 var exp=require("express");
 var app=exp(); 
+var modelo=require('./servidor/modelo.js');
+
+var juego= new modelo.Juego();
 
 //app.use(app.router);
-app.use(exp.static(__dirname +"/Cliente"));
+app.use(exp.static(__dirname +"/cliente"));
 
 app.get("/",function(request,response){
-	var contenido=fs.readFileSync(".Cliente/index.html");
+	var contenido=fs.readFileSync("./cliente/index.html");
 	response.setHeader("Content-type","text/html");
 	response.send(contenido);
 });
+
+app.get('/crearUsuario/:nombre',function(request,response){
+	//crear el usuario con el nombre
+	var usuario= new modelo.Usuario(request.params.nombre);
+	juego.agregarUsuario(usuario);
+	var id=usuario.id;
+	usuario=juego.obtenerUsuario(id);
+	console.log(usuario);
+	response.send({'nombre':usuario.nombre,'nivel':usuario.nivel,'id':usuario.id});
+})
+
+app.get('/comprobarUsuario/:id', function(request, response){
+	var id=request.params.id;
+	var usuario=juego.obtenerUsuario(id);
+	var json;
+	console.log("comprobar usuario: "+usuario);
+	if (usuario==undefined){
+		response.send({'nivel ' :-1});
+
+	}
+	else{
+		response.send({'nivel ' :usuario.nivel});
+
+	}
+})
 
 console.log("Servidor escuchando en el puerto "+port);
 app.listen(port,host);
