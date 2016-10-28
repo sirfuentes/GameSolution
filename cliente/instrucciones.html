@@ -1,0 +1,56 @@
+<html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+    <title>Crash Bandicoot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="lib/jquery.cookie.js"></script>
+	<script type="text/javascript" src="lib/phaser.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <span></span> Jugar
+      </a>
+    </div>
+      <a class="navbar-brand" href="/instrucciones.html">
+        <span></span> Instrucciones
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <p>
+      Instrucciones:
+      	<ul>
+			<li>El objetivo del juego es alcanzar la m&aacute;scara de Aku Aku.</li>
+			<li>Las cajas TNT restan una vida.</li>
+			<li>Las manzanas dan una vida.</li>
+			<li>Crash dispara granadas con la barra espaciadora para romper cajas TNT antes de que lleguen a el.</li>
+			<li>El juego termina cuando te quedas sin vidas.</li>
+			<li>Crash se controla con los cursores (arriba, abajo, izquiera y derecha).</li>
+      <li>Es recomendable tener activado el sonido para una mejor inmersión en juego.</li>
+		</ul>
+      </p>
+    </div>
+  </div>
+</div>
+<script src="js/control-juego.js"></script>
+<script src="js/coordenadas.js"></script>
+<script src="js/juego-clase.js"></script>
+<script>
+    inicio();
+</script>
+</body>
+</html>
